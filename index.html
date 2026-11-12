@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f6fa">
+  <title>Daylist — your tasks, in focus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Daylist home">
+        <span class="brand-mark" aria-hidden="true">✓</span>
+        <span>daylist</span>
+      </a>
+      <div class="topbar-note"><span class="status-dot"></span> A little progress adds up</div>
+    </header>
+
+    <section class="workspace" aria-labelledby="page-title">
+      <div class="intro">
+        <p class="eyebrow" id="today-label"></p>
+        <h1 id="page-title">Make room for<br><span>what matters.</span></h1>
+        <p class="intro-copy">A clear mind starts with a clear list.</p>
+      </div>
+
+      <section class="task-card" aria-label="Your to-do list">
+        <div class="card-heading">
+          <div>
+            <h2>Today’s tasks</h2>
+            <p id="task-summary">Let’s make today count.</p>
+          </div>
+          <div class="progress-ring" id="progress-ring" role="img" aria-label="0% complete">
+            <span id="progress-value">0%</span>
+          </div>
+        </div>
+
+        <form class="add-form" id="add-form">
+          <label class="sr-only" for="task-input">Add a task</label>
+          <span class="input-plus" aria-hidden="true">+</span>
+          <input id="task-input" name="task" type="text" maxlength="160" placeholder="What needs to get done?" autocomplete="off" required>
+          <button type="submit" class="add-button">Add task <span aria-hidden="true">↗</span></button>
+        </form>
+
+        <div class="list-toolbar">
+          <div class="filters" role="group" aria-label="Filter tasks">
+            <button type="button" class="filter-button active" data-filter="all" aria-pressed="true">All <span id="all-count">0</span></button>
+            <button type="button" class="filter-button" data-filter="active" aria-pressed="false">Active</button>
+            <button type="button" class="filter-button" data-filter="completed" aria-pressed="false">Completed</button>
+          </div>
+          <button type="button" class="clear-button" id="clear-completed" hidden>Clear completed</button>
+        </div>
+
+        <ul class="task-list" id="task-list" aria-live="polite" aria-relevant="additions removals text"></ul>
+        <div class="empty-state" id="empty-state">
+          <span class="empty-icon" aria-hidden="true">✦</span>
+          <p class="empty-title">Your list is a blank canvas</p>
+          <p>Add a task above and take the first step.</p>
+        </div>
+
+        <footer class="card-footer">
+          <span><span class="keyboard-hint">TIP</span> Keep it small. Keep it moving.</span>
+          <span id="remaining-label">0 tasks left</span>
+        </footer>
+      </section>
+
+      <p class="page-note">One thing at a time. You’ve got this <span aria-hidden="true">✳</span></p>
+    </section>
+  </main>
+</body>
+</html>
